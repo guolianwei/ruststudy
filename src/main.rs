@@ -2,15 +2,31 @@ extern crate rand;
 use rand::Rng;
 use std::cmp::Ordering;
 use std::io;
-
+include!("vect.rs");
+include!("borrow.rs");
+include!("fun.rs");
+include!("closures.rs");
 fn main() {
+    let c=Circle {
+        x:0.0f64,
+        y:0.0f64,
+        radius:1.0f64,
+    };
+    let s= Square {
+        x:0.0f64,
+        y:0.0f64,
+        side:1.0f64,
+    };
+    print_area(s);
+    print_area(c);
+
+    vect_test(1);
     println!("Guess the number!");
     println!("Please input you Guess.");
     let _secret_number = rand::thread_rng().gen_range(1, 101);
     println!("The secret number is:{}", _secret_number);
-    diverges();
-    let _x: i32 = diverges();
-    let _x: String = diverges();
+    vect_out_of_index();
+    vect_show(2);
     let _f: fn(i32) -> i32;
     let _f = plus_one;
     _f(1);
@@ -45,6 +61,7 @@ fn main() {
             }
         }
     }
+    borrow_example();
 }
 fn print_number(x: i32) {
     println!("x is {}", x);
@@ -122,4 +139,17 @@ fn slice_syntax(arg: i32) -> i32 {
     let _complete = &a[..]; //A slice containing all of the elements in `a`;
     let _middle = &a[1..4]; //A slice of a :only the elments 1,2,3;
     7
+}
+fn vect_show(arg: i32) -> i32 {
+    let v = vec![1, 2, 3, 4, 5];
+    let v1 = vec![0; 10]; // ten zeros
+    println!("the third element of v is {}", v[2]);
+    2
+}
+fn vect_out_of_index() {
+    let v = vec![1, 2, 3]; //out of bounds Access
+    match v.get(7) {
+        Some(_x) => println!("Item 7 is {}", _x),
+        None => println!("Sorry this vect is to Short."),
+    }
 }
