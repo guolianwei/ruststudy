@@ -1,0 +1,10 @@
+[package]
+name = "guessing_game"
+version = "0.1.0"
+authors = ["Administrator"]
+
+[dependencies]
+rand = "0.3"
+time = "0.1.35"
+log = { version = "0.3" }
+regex = { git = "https://github.com/rust-lang-nursery/regex" }
