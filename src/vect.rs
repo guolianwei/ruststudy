@@ -8,6 +8,7 @@ fn foo(){
     //Rust ensures that there is exactly one binding to any given resource.
     //Rust ensures that there is exactly one  binding to any given resource. 
     //Rust ensures that there is exactly one binding to any given resource.
+    //Rust ensures that there is exactl on binding to any given resource.
     let a = 5;
 
     let _y = double(a);

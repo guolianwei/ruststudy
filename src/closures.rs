@@ -17,8 +17,6 @@ fn closures_and_their_environment(arg: String) -> i32 {
     // let y = &mut num1;
     let nums=vec![1,2,3];
     let take_nums = || nums;
-  
-
     num1
 }
 fn move_closures (){
